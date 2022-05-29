@@ -30,7 +30,12 @@ client.on("messageCreate", (message) =>{
         message.channel.send("Ecco la migliore playlist del mondo: https://open.spotify.com/playlist/6aFrZfPb2Rd7E6XRQEqZ9U?si=58dfb3c7ca094a16")
     } 
 
+
+    if(message.content == "!bot"){
+        message.author.send("Hey io sono Gatto, il bot di Discord creato da Andrea")
+    }
 })
+
 
 
 
