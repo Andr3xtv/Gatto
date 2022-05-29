@@ -15,8 +15,12 @@ client.on("messageCreate", (message) =>{
     }
 
     if(message.content == "ciao") {
-        message.channel.send("ciao a te pirla")
+        message.channel.send("ciao" + message.author.toString())
     }  
+
+    if(message.content == "!andrea") {
+        message.channel.send("Hey <@681846390468378675>")
+    } 
 
     if(message.content == "!osu") {
         message.channel.send("https://osu.ppy.sh/home")
