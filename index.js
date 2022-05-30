@@ -147,7 +147,7 @@ function OraAttuale(){
     var minutes = new Date().getMinutes();
 
     var canale = client.channels.cache.get("948329695395610624");
-    if (hour == 15 && minute == 0){
+    if (hour == 15 && minutes == 0){
         canale.send("BUONGIORNO!!")
     }
 }
