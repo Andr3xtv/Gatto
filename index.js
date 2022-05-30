@@ -5,12 +5,12 @@ const client = new Discord.Client(
     
 client.login(process.env.token)
 
+var messaggi = ["Ciao", "Come va", "Hey", "Ehi", "Non ti rispondo", "bot", "pietro bamba"]
+var dado = ["1", "2", "3", "4", "5","6"]
+
 client.on("ready", () => {
     console.log("BOT ONLINE")
 })
-
-var messaggi = ["Ciao", "Come va", "Hey", "Ehi", "Non ti rispondo", "bot", "pietro bamba"]
-var dado = ["1", "2", "3", "4", "5","6"]
 
 client.on("messageCreate", (message) =>{
     if(message.content == "!skribbl"){
@@ -42,20 +42,17 @@ client.on("messageCreate", (message) =>{
         message.author.send("Hey io sono Gatto, il bot di Discord creato da Andrea")
     }
 
-});
-
-client.on("message", (message) => {
     if (message.content == "!random"){
         var random= Math.floor(Math.random() * messaggi.lenght)
         message.channel.send(message.author.toString() + " " + messaggi[random])
-}
+    }
 
-if (message.content == "!dado"){
-    var random= Math.floor(Math.random() * dado.lenght)
-    message.channel.send(message.author.toString() + " " + dado[random])
-}
+    if (message.content == "!dado"){
+        var random= Math.floor(Math.random() * dado.lenght)
+        message.channel.send(message.author.toString() + " " + dado[random])
+    }
 
-})
+});
 
 
 function OraAttuale(){
