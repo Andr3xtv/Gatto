@@ -10,6 +10,7 @@ client.on("ready", () => {
 })
 
 var messaggi = ["Ciao", "Come va", "Hey", "Ehi", "Non ti rispondo", "bot", "pietro bamba"]
+var dado = ["1", "2", "3", "4", "5","6"]
 
 client.on("messageCreate", (message) =>{
     if(message.content == "!skribbl"){
@@ -26,8 +27,13 @@ client.on("messageCreate", (message) =>{
 
     if (message.content == "!random"){
             var random= Math.floor(Math.random() * messaggi.lenght)
-            message.channel.send(message.author.toString() + messaggi[random])
+            message.channel.send(message.author.toString() + " " + messaggi[random])
     }
+
+    if (message.content == "!dado"){
+        var random= Math.floor(Math.random() * dado.lenght)
+        message.channel.send(message.author.toString() + " " + dado[random])
+    }   
 
     if(message.content == "!osu") {
         message.channel.send("https://osu.ppy.sh/home")
@@ -49,6 +55,16 @@ client.on("messageCreate", (message) =>{
 })
 
 
+function OraAttuale(){
+    var hour = new Date().getHours();
+    var minutes = new Date().getMinutes();
+
+    var canale = client.channels.cache.get("948329695395610624");
+    if (hour == 15 && minute == 0){
+        canale.send("BUONGIORNO!!")
+    }
+}
+setInterval(OraAttuale, 1000*60)
 
 
 
