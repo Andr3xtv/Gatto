@@ -112,11 +112,11 @@ client.on("messageCreate", (message) =>{
                     .then(collected => {
                         var reazione = collected.first().emoji.name;
                         if(reazione == "✅"){
-                            message.channel.send("Bravo, hai fatto la scelta giusta")
+                            message.channel.send("Bravo, hai fatto la scelta giusta");
                         }
 
                         if(reazione == "❌"){
-                            message.channel.send("Hai sbagliato, mi dispiace")
+                            message.channel.send("Hai sbagliato, mi dispiace");
                         }
 
                         message.delete();
