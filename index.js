@@ -46,12 +46,12 @@ client.on("messageCreate", (message) =>{
 
 client.on("messageCreate", (message) =>{
 if (message.content == "!random"){
-    var random= Math.floor(Math.random() * messaggi.lenght)
+    var random = Math.floor(Math.random() * messaggi.lenght)
     message.channel.send(message.author.toString() + " " + messaggi[random])
 }
 
 if (message.content == "!dado"){
-    var random= Math.floor(Math.random() * dado.lenght)
+    var dado = Math.floor(Math.random() * dado.lenght)
     message.channel.send(message.author.toString() + " " + dado[random])
 }
 });
