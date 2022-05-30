@@ -42,16 +42,98 @@ client.on("messageCreate", (message) =>{
         message.author.send("Hey io sono Gatto, il bot di Discord creato da Andrea")
     }
 
+    /* IF PER KICK UTENTE
+    if (message.content.startsWith("!kick")){
+
+        var utenteKick = message.mentions.members.first();
+
+        if(!message.member.hasPermission("KICK_MEMBERS")){
+            message.channel.send("Non hai il permesso di eseguire questo");
+            return;
+        }
+        
+        if(!utenteKick){
+            message.channel.send("Non hai menzionato nessun utente");
+            return;
+        }
+
+        if(!utenteKick.kickable){
+            message.channel.send("Il bot non ha il permesso");
+            return;
+        }
+
+        utenteKick.kick()
+            .then(() => message.channel.send ("<@" + utenteKick + "> è stato kiccato"))
+    }
+    */
+
+    /* IF BAN UTENTE
+    if (message.content.startsWith("!ban")){
+
+        var utenteBan = message.mentions.members.first();
+
+        if(!message.member.hasPermission("BAN_MEMBERS")){
+            message.channel.send("Non hai il permesso di eseguire questo");
+            return;
+        }
+        
+        if(!utenteBan){
+            message.channel.send("Non hai menzionato nessun utente");
+            return;
+        }
+
+        if(!utenteBan.kickable){
+            message.channel.send("Il bot non ha il permesso");
+            return;
+        }
+
+        utenteKick.ban()
+            .then(() => message.channel.send ("<@" + utenteBan + "> è stato kiccato"))
+    }
+    */
+
+    if(message.content == "!reactFun"){
+        message.channel.send("HAPPY")
+            .then(function (message){
+                message.react("😂")
+                message.react("🤣")
+        })
+    }
+
+    if(message.content == "!react"){
+        message.channel.send("Scegli una reazione")
+            .then(messaggio => {
+                messaggio.react("✅");
+                messaggio.react("❌");
+
+                var filtro = (reaction, user) => ["✅", "❌"].includes(reaction.emoji.name) && user.id == message.author.id;
+
+                messaggio.awaitReactions(filtro, {max:1, time: 10000})
+                    .then(collected => {
+                        var reazione = collected.first().emoji.name;
+                        if(reazione == "✅"){
+                            message.channel.send("Bravo, hai fatto la scelta giusta")
+                        }
+
+                        if(reazione == "❌"){
+                            message.channel.send("Hai sbagliato, mi dispiace")
+                        }
+                    }).catch(collected => {
+                        return message.channel.send("Tempo scaduto!")
+                    })
+        
+        })
+    }
 });
 
 client.on("messageCreate", (message) =>{
-if (message.content == "!random"){
+if (message.content == "!casual"){
     var random = Math.floor(Math.random() * messaggi.lenght)
     message.channel.send(message.author.toString() + " " + messaggi[random])
 }
 
 if (message.content == "!dado"){
-    var dado = Math.floor(Math.random() * dado.lenght)
+    var random = Math.floor(Math.random() * dado.lenght)
     message.channel.send(message.author.toString() + " " + dado[random])
 }
 });
