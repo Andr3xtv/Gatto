@@ -42,18 +42,19 @@ client.on("messageCreate", (message) =>{
         message.author.send("Hey io sono Gatto, il bot di Discord creato da Andrea")
     }
 
-    if (message.content == "!random"){
-        var random= Math.floor(Math.random() * messaggi.lenght)
-        message.channel.send(message.author.toString() + " " + messaggi[random])
-    }
-
-    if (message.content == "!dado"){
-        var random= Math.floor(Math.random() * dado.lenght)
-        message.channel.send(message.author.toString() + " " + dado[random])
-    }
-
 });
 
+client.on("messageCreate", (message) =>{
+if (message.content == "!random"){
+    var random= Math.floor(Math.random() * messaggi.lenght)
+    message.channel.send(message.author.toString() + " " + messaggi[random])
+}
+
+if (message.content == "!dado"){
+    var random= Math.floor(Math.random() * dado.lenght)
+    message.channel.send(message.author.toString() + " " + dado[random])
+}
+});
 
 function OraAttuale(){
     var hour = new Date().getHours();
