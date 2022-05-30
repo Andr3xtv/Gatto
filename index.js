@@ -23,17 +23,7 @@ client.on("messageCreate", (message) =>{
 
     if(message.content == "!andrea") {
         message.channel.send("Hey <@681846390468378675>")
-    } 
-
-    if (message.content == "!random"){
-            var random= Math.floor(Math.random() * messaggi.lenght)
-            message.channel.send(message.author.toString() + " " + messaggi[random])
-    }
-
-    if (message.content == "!dado"){
-        var random= Math.floor(Math.random() * dado.lenght)
-        message.channel.send(message.author.toString() + " " + dado[random])
-    }   
+    }    
 
     if(message.content == "!osu") {
         message.channel.send("https://osu.ppy.sh/home")
@@ -51,6 +41,19 @@ client.on("messageCreate", (message) =>{
     if(message.content == "!bot"){
         message.author.send("Hey io sono Gatto, il bot di Discord creato da Andrea")
     }
+
+});
+
+client.on("message", (message) => {
+    if (message.content == "!random"){
+        var random= Math.floor(Math.random() * messaggi.lenght)
+        message.channel.send(message.author.toString() + " " + messaggi[random])
+}
+
+if (message.content == "!dado"){
+    var random= Math.floor(Math.random() * dado.lenght)
+    message.channel.send(message.author.toString() + " " + dado[random])
+}
 
 })
 
