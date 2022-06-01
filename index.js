@@ -47,7 +47,7 @@ client.on("messageCreate", (message) =>{
 
         var utenteKick = message.mentions.members.first();
 
-        if(!message.member.hasPermission("KICK_MEMBERS")){
+        if(!message.member.permissions.has("KICK_MEMBERS")){
             message.channel.send("Non hai il permesso di eseguire questo");
             return;
         }
@@ -72,7 +72,7 @@ client.on("messageCreate", (message) =>{
 
         var utenteBan = message.mentions.members.first();
 
-        if(!message.member.hasPermission("BAN_MEMBERS")){
+        if(!message.member.permissions.has("BAN_MEMBERS")){
             message.channel.send("Non hai il permesso di eseguire questo");
             return;
         }
@@ -172,7 +172,7 @@ client.on("message", (message) => {
         message.channel.bulkDelete(count, true);
         message.channel.send("Ho eliminato" + count + "messaggi")
         .then(msg =>{
-            msg.delete({timeout: 2000 })
+            msg.delete({timeout: 5000 })
         })
     }
 });
