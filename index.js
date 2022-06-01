@@ -143,11 +143,11 @@ client.on("messageCreate", (message) =>{
 });
 
 client.on("guildMemberAdd", (member) => {
-    client.channels.cache.get("814495773412163620").send("Benvenuto" + member.toString() + "in" + member.guild.name + ", sei il " + member.guild.memberCount + "° membro");
+    client.channels.cache.get("814495773412163620").send("Benvenuto " + member.toString() + "in " + member.guild.name + ", sei il " + member.guild.memberCount + "° membro");
 });
 
 client.on("guildMemberRemove", (member) => {
-    client.channels.cache.get("814495773412163620").send("Arrivederci" + member.toString() + "torna presto qui su" + member.guild.name);
+    client.channels.cache.get("814495773412163620").send("Arrivederci " + member.toString() + " torna presto qui su " + member.guild.name);
 });
 
 client.on("messageCreate", (message) => {
