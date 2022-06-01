@@ -127,6 +127,52 @@ client.on("messageCreate", (message) =>{
                     })
         
         })
+        if(message.content == "!verifica"){
+    }
+
+        if(message.member.roles.cache.has("814491147065884673")){
+            message.channel.send("Hai il ruolo!");
+        }
+        else{
+            message.channel.send("Non hai il ruolo");
+        }
+    }
+   
+
+});
+
+client.on("guildMemberAdd", (member) => {
+    client.channels.cache.get("814495773412163620").send("Benvenuto" + member.toString() + "in" + member.guild.name + ", sei il " + member.guild.memberCount + "° membro");
+});
+
+client.on("guildMemberRemove", (member) => {
+    client.channels.cache.get("814495773412163620").send("Arrivederci" + member.toString() + "torna presto qui su" + member.guild.name);
+});
+
+client.on("message", (message) => {
+    if(message.content.startsWith("!clear")){
+        if(!message.member.hasPermission("MANAGE_MESSAGES")){
+        message.channel.sedn("Non hai il permesso");
+        return;
+        }
+        if(!message.guild.me.hasPermission("MANAGE_MESSAGES")){
+            message.channel.send("Non ho il permsso");
+            return;
+        }
+
+        var count = message.content.slice(7);
+        count = parseInt(count);
+
+        if(!count){
+            message.channnel.send("Inserisci un numero valido");
+            return;
+        }
+
+        message.channel.bulkDelete(count, true);
+        message.channel.send("Ho eliminato" + count + "messaggi")
+        .then(msg =>{
+            msg.delete({timeout: 2000 })
+        })
     }
 });
 
