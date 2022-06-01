@@ -119,7 +119,7 @@ client.on("messageCreate", (message) =>{
                             message.channel.send("Hai sbagliato, mi dispiace");
                         }
 
-                        messaggio.delete();
+                        message.delete();
 
                     }).catch(collected => {
                         return message.channel.send("Tempo scaduto!")
