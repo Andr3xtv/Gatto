@@ -118,6 +118,9 @@ client.on("messageCreate", (message) =>{
                         if(reazione == "❌"){
                             message.channel.send("Hai sbagliato, mi dispiace");
                         }
+
+                        message.delete();
+                        messaggio.delete();
                         
                     }).catch(collected => {
                         return message.channel.send("Tempo scaduto!")
