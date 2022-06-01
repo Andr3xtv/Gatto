@@ -108,7 +108,7 @@ client.on("messageCreate", (message) =>{
 
                 var filtro = (reaction, user) => ["✅", "❌"].includes(reaction.emoji.name) && user.id == message.author.id;
 
-                messaggio.awaitReactions(filtro, {max:1, time: 10000})
+                messaggio.awaitReactions(filtro, {max:1, time: 5000})
                     .then(collected => {
                         var reazione = collected.first().emoji.name;
                         if(reazione == "✅"){
@@ -118,9 +118,7 @@ client.on("messageCreate", (message) =>{
                         if(reazione == "❌"){
                             message.channel.send("Hai sbagliato, mi dispiace");
                         }
-
-                        message.delete();
-
+                        
                     }).catch(collected => {
                         return message.channel.send("Tempo scaduto!")
                     })
