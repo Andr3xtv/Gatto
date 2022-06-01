@@ -170,9 +170,9 @@ client.on("message", (message) => {
         }
 
         message.channel.bulkDelete(count, true);
-        message.channel.send("Ho eliminato" + count + "messaggi")
+        message.channel.send("Ho eliminato" + count + " messaggi")
         .then(msg =>{
-            msg.delete({timeout: 5000 })
+            msg.delete({timeout: 10000 })
         })
     }
 });
