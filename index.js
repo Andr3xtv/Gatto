@@ -151,7 +151,7 @@ client.on("guildMemberRemove", (member) => {
 });
 
 client.on("message", (message) => {
-    if(message.content.startsWith("!clear")){
+    if(message.content.startsWith("£clear")){
         if(!message.member.hasPermission("MANAGE_MESSAGES")){
         message.channel.sedn("Non hai il permesso");
         return;
