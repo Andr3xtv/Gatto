@@ -127,9 +127,11 @@ client.on("messageCreate", (message) =>{
                     })
         
         })
-        if(message.content == "!verifica"){
+
+        
     }
 
+    if(message.content == "!verifica"){
         if(message.member.roles.cache.has("814491147065884673")){
             message.channel.send("Hai il ruolo!");
         }
@@ -138,7 +140,6 @@ client.on("messageCreate", (message) =>{
         }
     }
    
-
 });
 
 client.on("guildMemberAdd", (member) => {
