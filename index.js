@@ -150,7 +150,7 @@ client.on("guildMemberRemove", (member) => {
     client.channels.cache.get("814495773412163620").send("Arrivederci" + member.toString() + "torna presto qui su" + member.guild.name);
 });
 
-client.on("message", (message) => {
+client.on("messageCreate", (message) => {
     if(message.content.startsWith("£clear")){
         if(!message.member.permissions.has("MANAGE_MESSAGES")){
         message.channel.sedn("Non hai il permesso");
