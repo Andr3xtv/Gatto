@@ -119,7 +119,6 @@ client.on("messageCreate", (message) =>{
                             message.channel.send("Hai sbagliato, mi dispiace");
                         }
 
-                        message.delete();
                         messaggio.delete();
 
                     }).catch(collected => {
