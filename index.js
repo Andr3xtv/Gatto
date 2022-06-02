@@ -201,12 +201,12 @@ function OraAttuale(){
 setInterval(OraAttuale, 1000*60)
 
 client.on("guildMemberAdd", (message) => {
-    var canale = client.channels.cache.get("981951016075411526")
+    var canale = client.channel.cache.get("981951016075411526")
     canale.setName("Members: " + member.guild.memberCount)
 })
 
 client.on("guildMemberRemove", (message) => {
-    var canale = client.channels.cache.get("981951016075411526")
+    var canale = client.channel.cache.get("981951016075411526")
     canale.setName("Members: " + member.guild.memberCount)
 })
 
@@ -217,9 +217,9 @@ client.on("message", message => {
         var botCount = server.members.cache.filter(member => member.user.bot).size;
         var utentiCount = server.memberCount - botCount;
 
-        var categoryCount = server.channels.cache.filter(c => c.type == "category").size
-        var textCount = server.channels.cache.filter(c => c.type == "text").size
-        var voiceCount = server.channels.cache.filter(c => c.type == "voice").size
+        var categoryCount = server.channel.cache.filter(c => c.type == "category").size
+        var textCount = server.channel.cache.filter(c => c.type == "text").size
+        var voiceCount = server.channel.cache.filter(c => c.type == "voice").size
 
         var embed = new Discord.MessageEmbed()
             .setTitle(server.name)
