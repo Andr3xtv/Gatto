@@ -200,5 +200,14 @@ function OraAttuale(){
 }
 setInterval(OraAttuale, 1000*60)
 
+client.on("guildMemberAdd", (message) => {
+    var canale = client.channels-cache-get("981951016075411526")
+    canale.setName("Members: " + member.guild.memberCount)
+})
+
+client.on("guildMemberRemove", (message) => {
+    var canale = client.channels-cache-get("981951016075411526")
+    canale.setName("Members: " + member.guild.memberCount)
+})
 
 
